@@ -1,6 +1,7 @@
 var page = require('webpage').create(),
   sys = require('system'),
-  waitFor = 1000,
+  waitFor = 4000,         // idle timeout
+  overAllTimeout = 15000, // overall timeout
   flag = null,
   t, address, timeout = null;
 
@@ -24,9 +25,9 @@ function printArgs() {
   for (i = 0, ilen = arguments.length; i < Math.min(1, ilen); ++i) {
     arg = arguments[i]
     if (typeof arg.url === 'undefined') {
-      console.log(arg);
+      console.log("==>" + arg);
     } else {
-      console.log(arg.url);
+      console.log("==>" + arg.url);
     }
   }
 }
@@ -81,3 +82,5 @@ page.onResourceReceived = function() {
 
 page.open(address, function (status) {
 });
+
+setTimeout(function() { phantom.exit() }, overAllTimeout);
