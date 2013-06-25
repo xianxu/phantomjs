@@ -1,7 +1,7 @@
 var page = require('webpage').create(),
   sys = require('system'),
-  waitFor = 4000,         // idle timeout
-  overAllTimeout = 15000, // overall timeout
+  waitFor = 5000,         // idle timeout
+  overAllTimeout = 30000, // overall timeout
   flag = null,
   t, address, timeout = null;
 
